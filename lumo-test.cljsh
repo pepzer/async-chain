@@ -1,0 +1,11 @@
+#!/bin/bash
+
+":"; exec lumo -D andare:0.7.0 -c src/cljc:test/cljc -K -i "$0"
+
+(ns repl.run
+ (:require [async-chain.core-test]
+           [cljs.test :as t]))
+
+(println "Test report is *INCORRECT*, run `lein test` to avoid this issue.")
+
+(t/run-tests 'async-chain.core-test)

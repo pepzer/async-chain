@@ -1,0 +1,19 @@
+#!/bin/bash
+
+":"; exec lumo --socket-repl 12345 -D andare:0.7.0 -c src/cljc:test/cljc -K -i "$0" -r
+
+(ns cljs.user
+ (:require [cljs.core.async :as a]
+           [async-chain.core :as ac]
+           [clojure.string :as cs])
+ (:use-macros [cljs.core.async.macros :only [go]]
+              [async-chain.macros :only [chain chain-node]]))
+
+(println "\nns loaded with:\n")
+(println
+ "(ns cljs.user
+  (:require [cljs.core.async :as a]
+            [async-chain.core :as ac]
+            [clojure.string :as cs])
+  (:use-macros [cljs.core.async.macros :only [go]]
+               [async-chain.core.macros :only [chain chain-node]]))\n")
